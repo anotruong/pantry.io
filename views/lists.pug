@@ -1,0 +1,13 @@
+extends layout 
+
+block main 
+    if ingredientsList === undefined || ingredientsList.length === 0
+      p#no_list You don't have any todo lists. Why not create one?
+    else 
+    ul#list 
+      each ingredient in ingredientsList 
+        p#ingredientsList= ingredient.name
+
+block headerLinks 
+  .action 
+    a.add(href="/new") New Ingredient

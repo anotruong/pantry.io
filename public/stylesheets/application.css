@@ -1,0 +1,39 @@
+/*This is the main color scheme for the application.
+
+color palette from coolers:
+  Pale Spring bud: edeec9
+  Pale Spring bud: dde7c7
+  cambridge blue: bfd8bd
+  eton blue 98c9a3
+  eton blue: 77bfa3
+*/
+
+body {
+  background-color: #77bfa3;
+  text-align: center;
+  font-size: 24px;
+}
+
+/* h1.bannerBorder{
+  background-color: #98c9a3;
+  background-color:var(--color-accent);
+  box-sizing:border-box;
+  color: #edeec9;
+  display:flex;
+  justify-content:center;
+  margin-bottom:20px;
+  margin-bottom:var(--module-25);
+  padding:90px 0;
+  
+} */
+
+h1.bannerBorder {
+  background-color: #98c9a3;
+  color: #edeec9;
+  padding: 90px
+}
+
+p#ingredientsList {
+  color: #bfd8bd;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
