@@ -33,7 +33,44 @@ h1.bannerBorder {
   padding: 90px
 }
 
-p#ingredientsList {
+ul#ingredientsList {
   color: #bfd8bd;
-  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  height:300px;
+  width: 250px;
+  border: 3px solid #000000;
+  font-size: 16px;
+  overflow: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+fieldset.actions {
+  width: auto;
+  height: auto;
+  border: #000;
+
+}
+
+.flash {
+  background-color: #cbe5f2;
+  color: #3399cc;
+  margin: 20px 0 1.5rem;
+  max-width: 1000px;
+  padding: 10px 20px;
+}
+
+.flash p {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.flash.error {
+  background-color: #ffcfbf;
+  color: #ff6633;
+}
+
+.flash.success {
+  background-color: #cbf2e5;
+  color: #33cc99;
 }
