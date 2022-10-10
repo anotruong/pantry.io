@@ -60,6 +60,7 @@ app.get("/home",
         ingredientsList = await res.locals.store.valuesOf(ingredientsList);
 
         res.render("lists", {
+          // Eventually, would like to make the list clickable and show case the alternatives beside it
           ingredientsList,
         });
       } catch(error) {
@@ -68,18 +69,16 @@ app.get("/home",
   }
 )
 
-app.post("/home", 
-  async (req, res, next) => {
+// app.post("/home", 
+//   async (req, res, next) => {
 
-})
+// })
 
 app.get("/newMain", (req, res) => {
-  // let tester = flash.
   res.render("newMain");
 })
 
-//page for entering information for a new ingredient
-//will need to produce an error if the ingredient name is not unique
+//completed
 app.post("/newMain", 
   async(req, res, next) => {
     try {
@@ -100,6 +99,45 @@ app.post("/newMain",
       next(error)
     }
 });
+
+app.get("/newCombo", 
+  async(req, res, next) => {
+    try {
+      let list = await res.locals.store.displayAll()
+      list = await res.locals.store.valuesOf(list);
+
+      res.render("combo", {
+        ingredientsList: list,
+      })
+    } catch(error) {
+      next(error)
+    }
+  })
+
+  app.post("/newCombo", async(req, res, next) => {
+    try {
+      let list =  await res.locals.store.displayAll();
+      list = await res.locals.store.valueOf(list)
+      let firstId = req.body.firstAlt;
+      //undefined isn't iterable
+      let secondAlt = req.body.secondAlt;
+      // secondAlt = res.locals.store.isUndefined(secondAlt);
+
+      let altForId = req.body.altFor;
+
+      //verify the ids of the items.
+      //have them all pass through the function at the same time
+    // if searh returns a non boolean answer, issue flash error statement.
+      //render /newCombo again with previous answers in the box.
+      let search = await res.locals.store.find_itemId(firstId, secondAlt, altForId);
+      console.log(search);
+      res.render("combo", {
+        ingredientsList: list,
+      })
+    } catch(error) {
+      next(error);
+    }
+  })
 
 app.listen(PORT, "localhost", () => {
   console.log(`Listening to port ${PORT}`);

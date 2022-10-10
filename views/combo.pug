@@ -1,0 +1,32 @@
+extends layout 
+
+block main 
+    ul#ingredientsList 
+      each ingredient in ingredientsList 
+        p= ingredient
+
+block headerLinks 
+   form(action="/newCombo" method="post")
+      dl
+        dt 
+          label(for="searchItem") What do you need an alterative of?
+        dd 
+          input(type="text"
+                id="firstAlt"
+                name="firstAlt"
+                placeholder="First alternative id")
+        dd 
+          input(type="text"
+                id="secondAlt"
+                name="secondAlt"
+                placeholder="optional second id")
+
+        dd 
+          input(type="text"
+                id="altFor"
+                name="altFor"
+                placeholder="id of ingredient for alt")
+
+      fieldset.actions 
+        input(type="submit" value="Enter")
+
