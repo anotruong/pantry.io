@@ -1,17 +1,16 @@
 extends layout 
 
 block main 
+  form(action="/newMain" method="post")
+    dl
+      dt 
+        label(for="nameMain") Add a new ingredient
+      dd 
+        input(type="text"
+              id="nameMain"
+              name="nameMain"
+              placeholder="Ingredient Name")
 
-    form(action="/newMain" method="post")
-      dl
-        dt 
-          label(for="nameMain") Add a new ingredient
-        dd 
-          input(type="text"
-                id="nameMain"
-                name="nameMain"
-                placeholder="Ingredient Name")
-
-      fieldset.actions 
-        input(type="submit" value="Search")
-        a(href="/home") Cancel
+    fieldset.actions 
+      input(type="submit" value="Submit")
+      a(href="/home") Cancel

@@ -1,27 +1,33 @@
 extends layout 
 
-block main 
-    if ingredientsList === undefined || ingredientsList.length === 0
-      p#no_list You don't have any todo lists. Why not create one?
-    else 
-    ul#ingredientsList 
-      each ingredient in ingredientsList 
-        p= ingredient
+block main
+  form(action="/home" method="post")
+    dl
+      dt 
+        label(for="searchItem") What do you need an alterative of?
+      dd 
+        input(type="text"
+              id="searchItem"
+              name="searchItem"
+              placeholder="Search for ingredient")
+      fieldset.actions 
+        input(type="submit" value="Search")
+
+  .lists
+    .lists-flex.main-list
+      ul#ingredientsList 
+        each ingredient in ingredientsList 
+          a.ingredient(href="#")
+            p.list= ingredient
+
+    .lists-flex.substitute-display
+      p tomato
+
+  //- p.altBox
 
 block headerLinks 
   .action 
     a(href="/newMain") New Ingredient 
+    |
     a(href="/newCombo") New Alternative
 
-    form(action="/home" method="post")
-      dl
-        dt 
-          label(for="searchItem") What do you need an alterative of?
-        dd 
-          input(type="text"
-                id="searchItem"
-                name="searchItem"
-                placeholder="Search for ingredient")
-
-      fieldset.actions 
-        input(type="submit" value="Search")

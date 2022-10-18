@@ -1,5 +1,4 @@
 const EXPRESS = require("express");
-//allows for flash to happen on pug
 const flash = require("express-flash");
 const PG_PERSISTENCE = require("./lib/pg-persistence");
 const ERROR_CATCHER = require("./lib/error-catcher");
@@ -57,8 +56,7 @@ app.get("/home",
     async (req, res, next) => {
       try {
         let ingredientsList = await res.locals.store.displayAll();
-        ingredientsList = await res.locals.store.valuesOf(ingredientsList);
-
+        
         res.render("lists", {
           // Eventually, would like to make the list clickable and show case the alternatives beside it
           ingredientsList,
@@ -69,11 +67,34 @@ app.get("/home",
   }
 )
 
-// app.post("/home", 
-//   async (req, res, next) => {
+app.post("/home", 
+  async (req, res, next) => {
+    try {
+      let list = await res.locals.store.displayAll();
+      let item = req.body.searchItem;
+      console.log(`item is ${item}`)
 
-// })
+      let result = await res.locals.store.findItemByName(item);
+      // console.log(result)
+      if (result) {
 
+        res.render("lists", {
+          ingredientsList: list,
+          altCombo: result,
+        })
+      } else {
+        req.flash("error", `${item} was not found.`)
+        res.render("lists", {
+          flash: req.flash(),
+          ingredientsList: list,
+        })
+      }
+    } catch(error) {
+      next(error)
+    }
+})
+
+//adding ingredient
 app.get("/newMain", (req, res) => {
   res.render("newMain");
 })
@@ -103,41 +124,62 @@ app.post("/newMain",
 app.get("/newCombo", 
   async(req, res, next) => {
     try {
-      let list = await res.locals.store.displayAll()
-      list = await res.locals.store.valuesOf(list);
+      let ingredientsList = await res.locals.store.displayAll();
 
       res.render("combo", {
-        ingredientsList: list,
+        ingredientsList
       })
     } catch(error) {
       next(error)
     }
-  })
+})
 
-  app.post("/newCombo", async(req, res, next) => {
+//incomplete, won't let me render page now.
+app.post("/newCombo", 
+  async(req, res, next) => {
     try {
-      let list =  await res.locals.store.displayAll();
-      list = await res.locals.store.valueOf(list)
-      let firstId = req.body.firstAlt;
-      //undefined isn't iterable
+      let primaryList = await res.locals.store.displayAll("main");
+      let substitution = '';
+      let firstAlt = req.body.firstAlt;
       let secondAlt = req.body.secondAlt;
-      // secondAlt = res.locals.store.isUndefined(secondAlt);
+      let altFor = req.body.altFor;
+      let ratio = req.body.ratio;
+      let note = req.body.note;
+      //check if the numbers are avaliable
+      //pass them into pgPersistence
+      //log them into the database
+      //flash success
+      let verifyIds = await res.locals.store.doesIdExist(firstAlt, secondAlt, altFor);
+      // console.log(verifyIds);
+      // console.log(firstItem, secondItem, primaryItem, ratio, note);
 
-      let altForId = req.body.altFor;
+      if(verifyIds === true) {
+        let primaryItem = await res.locals.store.findItemById(altFor);
 
-      //verify the ids of the items.
-      //have them all pass through the function at the same time
-    // if searh returns a non boolean answer, issue flash error statement.
-      //render /newCombo again with previous answers in the box.
-      let search = await res.locals.store.find_itemId(firstId, secondAlt, altForId);
-      console.log(search);
-      res.render("combo", {
-        ingredientsList: list,
-      })
+        await res.locals.store.addCombo(firstAlt, secondAlt, altFor, ratio, note);
+        req.flash("success", `A new substitution was added to "${primaryItem}"`)
+        res.render("combo", {
+          flash: req.flash(),
+          ingredientsList: primaryList,
+        })
+      } else {
+        req.flash("error", `${verifyIds} is an invalid entry.`);
+        res.render("combo", {
+          flash: req.flash(),
+          ingredientsList: primaryList,
+          //leave the previous entry if incorrect in the text box
+          // firstAlt,
+          // secondAlt,
+          // altFor,
+          // ratio,
+          // note,
+        })
+      }
+
     } catch(error) {
       next(error);
     }
-  })
+})
 
 app.listen(PORT, "localhost", () => {
   console.log(`Listening to port ${PORT}`);
