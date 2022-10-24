@@ -9,10 +9,12 @@ html(lang="en-US")
   body 
     header 
       .bannerBorder
-        //- .bannerBorder-content
-        img.logo(src='hat-chef.png') 
-        h1.logo PANTRY
-      
+        .bannerBorder.bannerBorder-content
+          img.logo(src='hat-chef.png') 
+          h1.logo PANTRY
+      .tagLine-flex
+        .tagLine-flex.text
+          a substitute for the missing ingredient in your recipe.
       block headerLinks
 
     main 

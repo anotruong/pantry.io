@@ -1,7 +1,8 @@
 extends layout 
 
 block main
-  form(action="/home" method="post")
+
+  //- form(action="/home" method="post")
     dl
       dt 
         label(for="searchItem") What do you need an alterative of?
@@ -13,21 +14,42 @@ block main
       fieldset.actions 
         input(type="submit" value="Search")
 
+
+
+  //- .lists
+    .lists-flex.main-list
+      ul#ingredientsList 
+        each ingredient in ingredientsList 
+          a(href=`/home/${Number(ingredient.id)}`)
+            p= ingredient.name
+
+    .lists-flex.substitute-display
+      p= `${altInfo}`
+
   .lists
     .lists-flex.main-list
       ul#ingredientsList 
         each ingredient in ingredientsList 
-          a.ingredient(href="#")
-            p.list= ingredient
+          //- button(type="button", class='item', value="item.click" onclick="grabString('item')") 
+          button(onclick="grabString(`${ingredient.id}`)")
+            p#ingredient= ingredient.name
+      //- button(onclick="grabString(#{ingredient})") Tomatos are fresh in season
 
     .lists-flex.substitute-display
-      p tomato
+      p= `${altInfo}` 
 
-  //- p.altBox
 
 block headerLinks 
-  .action 
-    a(href="/newMain") New Ingredient 
-    |
-    a(href="/newCombo") New Alternative
+  .button
+    .action 
+      a.navi-flex.navi(href="/newMain") New Ingredient 
+      a.navi-flex.navi(href="/newCombo") New Alternative
+  
+  script(type='text/javascript').
+    {
+      function getString(id){
+        console.log(document.getElementById('ingredient').innerHTML);
+        console.log(`this id is ${id});
+      };
+    }
 

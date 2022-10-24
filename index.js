@@ -2,7 +2,6 @@ const EXPRESS = require("express");
 const flash = require("express-flash");
 const PG_PERSISTENCE = require("./lib/pg-persistence");
 const ERROR_CATCHER = require("./lib/error-catcher");
-//
 const SESSION = require("express-session");
 //Allows express to connect to database
 const STORE = require("connect-loki");
@@ -56,11 +55,14 @@ app.get("/home",
     async (req, res, next) => {
       try {
         let ingredientsList = await res.locals.store.displayAll();
-        
+
         res.render("lists", {
           // Eventually, would like to make the list clickable and show case the alternatives beside it
           ingredientsList,
+          // altInfo,
+          // grabString
         });
+
       } catch(error) {
         next(error)
       }
@@ -71,27 +73,39 @@ app.post("/home",
   async (req, res, next) => {
     try {
       let list = await res.locals.store.displayAll();
-      let item = req.body.searchItem;
-      console.log(`item is ${item}`)
+      // let result = await res.locals.store.findItemByName(item);
+      let string = 'This test has failed';
 
-      let result = await res.locals.store.findItemByName(item);
-      // console.log(result)
-      if (result) {
-
-        res.render("lists", {
-          ingredientsList: list,
-          altCombo: result,
-        })
-      } else {
-        req.flash("error", `${item} was not found.`)
-        res.render("lists", {
-          flash: req.flash(),
-          ingredientsList: list,
-        })
+      function grabString() {
+        string = document.getElementById("item");
+        console.log(string.innerHTML);
       }
+
+      console.log(string)
+
+      res.render("lists", {
+        ingredientsList: list,
+        // altInfo: string,
+        grabString
+      })
     } catch(error) {
       next(error)
     }
+})
+
+app.get("/home/:ingredientId", async (req, res, next) => {
+  try {
+    const INGREDIENTS_ID = req.params.ingredientId;
+    let list = await res.locals.store.displayAll();
+    let altInfo = await res.locals.store.displayAltInfo(INGREDIENTS_ID);
+
+    res.redirect("/home", {
+      altInfo,
+      ingredientsList: list,
+  })
+  } catch(error) {
+    next(error);
+  }
 })
 
 //adding ingredient
@@ -134,7 +148,7 @@ app.get("/newCombo",
     }
 })
 
-//incomplete, won't let me render page now.
+//fixed
 app.post("/newCombo", 
   async(req, res, next) => {
     try {
@@ -145,13 +159,7 @@ app.post("/newCombo",
       let altFor = req.body.altFor;
       let ratio = req.body.ratio;
       let note = req.body.note;
-      //check if the numbers are avaliable
-      //pass them into pgPersistence
-      //log them into the database
-      //flash success
       let verifyIds = await res.locals.store.doesIdExist(firstAlt, secondAlt, altFor);
-      // console.log(verifyIds);
-      // console.log(firstItem, secondItem, primaryItem, ratio, note);
 
       if(verifyIds === true) {
         let primaryItem = await res.locals.store.findItemById(altFor);
