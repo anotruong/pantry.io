@@ -1,22 +1,7 @@
 extends layout 
 
 block main
-
-  //- form(action="/home" method="post")
-    dl
-      dt 
-        label(for="searchItem") What do you need an alterative of?
-      dd 
-        input(type="text"
-              id="searchItem"
-              name="searchItem"
-              placeholder="Search for ingredient")
-      fieldset.actions 
-        input(type="submit" value="Search")
-
-
-
-  //- .lists
+  .flex
     .lists-flex.main-list
       ul#ingredientsList 
         each ingredient in ingredientsList 
@@ -26,17 +11,24 @@ block main
     .lists-flex.substitute-display
       p= `${altInfo}`
 
-  .lists
+  //- .flex
     .lists-flex.main-list
       ul#ingredientsList 
         each ingredient in ingredientsList 
-          //- button(type="button", class='item', value="item.click" onclick="grabString('item')") 
-          button(onclick="grabString(`${ingredient.id}`)")
-            p#ingredient= ingredient.name
-      //- button(onclick="grabString(#{ingredient})") Tomatos are fresh in season
-
+          button#item(onclick="grabString(#{ingredient.id})")=ingredient.name
+ 
     .lists-flex.substitute-display
       p= `${altInfo}` 
+
+    script(type='text/javascript').
+      {
+        function grabString(id) {
+          //- console.log(document.getElementById('item').innerHTML);
+          //- console.log(`this id is ${id}`;
+          document.getElementById('item').innerHTML = "testing"
+        };
+      }
+
 
 
 block headerLinks 
@@ -45,11 +37,4 @@ block headerLinks
       a.navi-flex.navi(href="/newMain") New Ingredient 
       a.navi-flex.navi(href="/newCombo") New Alternative
   
-  script(type='text/javascript').
-    {
-      function getString(id){
-        console.log(document.getElementById('ingredient').innerHTML);
-        console.log(`this id is ${id});
-      };
-    }
 

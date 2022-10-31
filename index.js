@@ -73,7 +73,6 @@ app.post("/home",
   async (req, res, next) => {
     try {
       let list = await res.locals.store.displayAll();
-      // let result = await res.locals.store.findItemByName(item);
       let string = 'This test has failed';
 
       function grabString() {
@@ -85,7 +84,7 @@ app.post("/home",
 
       res.render("lists", {
         ingredientsList: list,
-        // altInfo: string,
+        altInfo: string,
         grabString
       })
     } catch(error) {
@@ -97,10 +96,10 @@ app.get("/home/:ingredientId", async (req, res, next) => {
   try {
     const INGREDIENTS_ID = req.params.ingredientId;
     let list = await res.locals.store.displayAll();
-    let altInfo = await res.locals.store.displayAltInfo(INGREDIENTS_ID);
+    // let altInfo = await res.locals.store.displayAltInfo(INGREDIENTS_ID);
 
-    res.redirect("/home", {
-      altInfo,
+    res.render("lists", {
+      // altInfo,
       ingredientsList: list,
   })
   } catch(error) {
@@ -139,7 +138,10 @@ app.get("/newCombo",
   async(req, res, next) => {
     try {
       let ingredientsList = await res.locals.store.displayAll();
-
+      // re design how the information is presented for ingredients list.
+      // make it so that the id and the ingredients are equally side by side but divided.
+      // Do not make it linkable
+      
       res.render("combo", {
         ingredientsList
       })

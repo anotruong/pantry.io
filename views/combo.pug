@@ -1,51 +1,58 @@
 extends layout 
 
 block main 
-  form(action="/newCombo" method="post")
-    dl
-      dt 
-        label(for="altItem") What do you need an alterative of?
-      dd 
-        input(type="text"
-              id="firstAlt"
-              name="firstAlt"
-              placeholder="First alternative id")
-      dd 
-        input(type="text"
-              id="secondAlt"
-              name="secondAlt"
-              placeholder="optional second id")
-      dd 
-        input(type="text"
-              id="altFor"
-              name="altFor"
-              placeholder="id of ingredient for alt")
-      dd 
-        input(type="text"
-              id="ratio"
-              name="ratio"
-              placeholder="is it 1:1, 2:3?")
+  .flex
+    .inputDisplay
+      form(action="/newCombo" method="post")
+        dl 
+          dt
+            label(for="altItem") What do you need an alterative of?
+          dd 
+            input.form(type="text"
+                       id="firstSub"
+                       name="firstSub"
+                       placeholder="substitute")
+            input.form(type="text"
+                  id="firstAlt"
+                  name="firstAlt"
+                  placeholder="First")
+          dd
+            input.form(type="text"
+                  id="secondAlt"
+                  name="secondAlt"
+                  placeholder="optional second id")
+          dd 
+            input.form(type="text"
+                  id="altFor"
+                  name="altFor"
+                  placeholder="id of ingredient for alt")
+          dd 
+            input.form(type="text"
+                  id="ratio"
+                  name="ratio"
+                  placeholder="is it 1:1, 2:3?")
+          dd 
+            input.form(type="text"
+                  id="note"
+                  name="note"
+                  placeholder="What should we know about this alt?")
 
-      dd 
-        input(type="text"
-              id="note"
-              name="note"
-              placeholder="What should we know about this alt?")
+          fieldset.actions 
+            input#submit(type="submit" value="ENTER")
 
-      fieldset.actions 
-        input(type="submit" value="Enter")
+    .inputDisplay.main-list
+      h2.title Ingredients List
+      ul#ingredientsList 
+        each ingredient in ingredientsList 
+          p= `${Object.values(ingredient)}`
 
-  .lists
+  //- .lists
     .lists-flex.main-list
       ul#ingredientsList 
         each ingredient in ingredientsList 
-          p= ingredient
+          p= `${Object.values(ingredient)}`
+ 
 
 block headerLinks 
   .action 
     a(href="/home") Home
-
-
-
-
-
