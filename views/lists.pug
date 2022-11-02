@@ -1,14 +1,18 @@
 extends layout 
 
 block main
+  .navi 
+    a.button.home(href="/newMain") ADD INGREDIENT 
+    a.button.home(href="/newCombo") ADD SUBSTITUTE
+
   .flex
-    .lists-flex.main-list
-      ul#ingredientsList 
+    .inputDisplay.main-list
+      ul#ingredientsList.homePage
         each ingredient in ingredientsList 
           a(href=`/home/${Number(ingredient.id)}`)
-            p= ingredient.name
+            p#item= ingredient.name
 
-    .lists-flex.substitute-display
+    .inputDisplay.substitute-display
       p= `${altInfo}`
 
   //- .flex
@@ -31,10 +35,11 @@ block main
 
 
 
-block headerLinks 
+//- block headerLinks 
   .button
-    .action 
-      a.navi-flex.navi(href="/newMain") New Ingredient 
-      a.navi-flex.navi(href="/newCombo") New Alternative
-  
+    .navi
+      .action 
+        a.button.home(href="/newMain") ADD INGREDIENT
+        a.button.home(href="/newCombo") ADD SUBSTITUTE
+    
 

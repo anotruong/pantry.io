@@ -9,18 +9,14 @@ block main
             label(for="altItem") What do you need an alterative of?
           dd 
             input.form(type="text"
-                       id="firstSub"
-                       name="firstSub"
-                       placeholder="substitute")
-            input.form(type="text"
                   id="firstAlt"
                   name="firstAlt"
-                  placeholder="First")
+                  placeholder="Substitute id")
           dd
             input.form(type="text"
                   id="secondAlt"
                   name="secondAlt"
-                  placeholder="optional second id")
+                  placeholder="opt secondary substitute id")
           dd 
             input.form(type="text"
                   id="altFor"
@@ -40,11 +36,16 @@ block main
           fieldset.actions 
             input#submit(type="submit" value="ENTER")
 
+          .button 
+            .action 
+              a.button.cancel(href="/home") CANCEL 
+        
+
     .inputDisplay.main-list
       h2.title Ingredients List
       ul#ingredientsList 
         each ingredient in ingredientsList 
-          p= `${Object.values(ingredient)}`
+          p#item= `${Object.values(ingredient)}`
 
   //- .lists
     .lists-flex.main-list
@@ -54,5 +55,6 @@ block main
  
 
 block headerLinks 
-  .action 
-    a(href="/home") Home
+  //- .button 
+    .action 
+      a.button.home(href="/home") Home

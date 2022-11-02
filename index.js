@@ -55,12 +55,11 @@ app.get("/home",
     async (req, res, next) => {
       try {
         let ingredientsList = await res.locals.store.displayAll();
-
+        let altInfo = `Choose an ingredient to see the substitutes`
+    
         res.render("lists", {
-          // Eventually, would like to make the list clickable and show case the alternatives beside it
           ingredientsList,
-          // altInfo,
-          // grabString
+          altInfo,
         });
 
       } catch(error) {
@@ -69,6 +68,7 @@ app.get("/home",
   }
 )
 
+//async
 app.post("/home", 
   async (req, res, next) => {
     try {
@@ -95,12 +95,42 @@ app.post("/home",
 app.get("/home/:ingredientId", async (req, res, next) => {
   try {
     const INGREDIENTS_ID = req.params.ingredientId;
-    let list = await res.locals.store.displayAll();
-    // let altInfo = await res.locals.store.displayAltInfo(INGREDIENTS_ID);
+    let ingredientsList = await res.locals.store.displayAll();
+    let altInfo = await res.locals.store.displayAltInfo(INGREDIENTS_ID);
 
     res.render("lists", {
-      // altInfo,
-      ingredientsList: list,
+      ingredientsList,
+      altInfo
+  })
+  } catch(error) {
+    next(error);
+  }
+})
+
+app.post("/home/:ingredientId", async (req, res, next) => {
+  try {
+    const INGREDIENTS_ID = req.params.ingredientId;
+    let ingredientsList = await res.locals.store.displayAll();
+    let altInfo = await res.locals.store.displayAltInfo(INGREDIENTS_ID);
+
+    res.render("lists", {
+      ingredientsList,
+      altInfo
+  })
+  
+app.get("/home/:ingredientId", async (req, res, next) => {
+    try {
+      const INGREDIENTS_ID = req.params.ingredientId;
+      let ingredientsList = await res.locals.store.displayAll();
+      let altInfo = await res.locals.store.displayAltInfo(INGREDIENTS_ID);
+  
+      res.render("lists", {
+        ingredientsList,
+        altInfo
+    })
+    } catch(error) {
+      next(error);
+    }
   })
   } catch(error) {
     next(error);
@@ -141,7 +171,7 @@ app.get("/newCombo",
       // re design how the information is presented for ingredients list.
       // make it so that the id and the ingredients are equally side by side but divided.
       // Do not make it linkable
-      
+
       res.render("combo", {
         ingredientsList
       })
@@ -150,7 +180,7 @@ app.get("/newCombo",
     }
 })
 
-//fixed
+//incomplete
 app.post("/newCombo", 
   async(req, res, next) => {
     try {
