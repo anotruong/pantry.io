@@ -9,3 +9,4 @@ Future Plans:
   - Specify whether the alterative is suitable for baking and/or cooking
   - Allow users to vote on which is the most popular alterative for an ingredient
   - Catagorising ingredients by food group and nutrition
+  - Validation
