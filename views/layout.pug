@@ -2,7 +2,7 @@ doctype html
 
 html(lang="en-US")
   head
-    title Alternative to missing ingredients
+    title Quick hacks for your kitchen
     meta(charset="UTF-8")
     link(rel="stylesheet" href="/stylesheets/application.css")
     
@@ -13,16 +13,19 @@ html(lang="en-US")
           img.logo(src='hat-chef.png')
           h1.logo PANTRY  
       .tagLine-flex
-        .tagLine-flex.text
-          p a substitute for the missing ingredient in your recipe.
+        p.tagLine so you don't have to run to the store
+
       block headerLinks
+      
+      .flash-flex
+        - let kinds = Object.keys(flash || {});
+        if kinds.length > 0
+          ul
+            each kind in kinds
+              each message in flash[kind]
+                li.flash(class=kind)= message
 
     main 
-      - let kinds = Object.keys(flash || {});
-      if kinds.length > 0
-        ul
-          each kind in kinds
-            each message in flash[kind]
-              li.flash(class=kind)= message
+
 
       block main

@@ -55,11 +55,17 @@ app.get("/home",
     async (req, res, next) => {
       try {
         let ingredientsList = await res.locals.store.displayAll();
-        let altInfo = `Choose an ingredient to see the substitutes`
+        let substitute = `Choose an ingredient to see the substitutes`;
+        let secondSub = '';
+        let ratio = ''
+        let note = '';
     
         res.render("lists", {
           ingredientsList,
-          altInfo,
+          substitute,
+          secondSub,
+          ratio,
+          note
         });
 
       } catch(error) {
@@ -92,50 +98,29 @@ app.post("/home",
     }
 })
 
-app.get("/home/:ingredientId", async (req, res, next) => {
-  try {
-    const INGREDIENTS_ID = req.params.ingredientId;
-    let ingredientsList = await res.locals.store.displayAll();
-    let altInfo = await res.locals.store.displayAltInfo(INGREDIENTS_ID);
-
-    res.render("lists", {
-      ingredientsList,
-      altInfo
-  })
-  } catch(error) {
-    next(error);
-  }
-})
-
-app.post("/home/:ingredientId", async (req, res, next) => {
-  try {
-    const INGREDIENTS_ID = req.params.ingredientId;
-    let ingredientsList = await res.locals.store.displayAll();
-    let altInfo = await res.locals.store.displayAltInfo(INGREDIENTS_ID);
-
-    res.render("lists", {
-      ingredientsList,
-      altInfo
-  })
-  
-app.get("/home/:ingredientId", async (req, res, next) => {
+app.get("/home/:ingredientId", 
+  async (req, res, next) => {
     try {
       const INGREDIENTS_ID = req.params.ingredientId;
       let ingredientsList = await res.locals.store.displayAll();
       let altInfo = await res.locals.store.displayAltInfo(INGREDIENTS_ID);
-  
+      let substitute = altInfo.firstAlt;
+      let secondSub = altInfo.secondAlt;
+      let ratio = altInfo.ratios;
+      let note = altInfo.note;
+
       res.render("lists", {
         ingredientsList,
-        altInfo
+        substitute,
+        secondSub,
+        ratio,
+        note,
     })
     } catch(error) {
       next(error);
     }
-  })
-  } catch(error) {
-    next(error);
   }
-})
+)
 
 //adding ingredient
 app.get("/newMain", (req, res) => {
@@ -151,14 +136,14 @@ app.post("/newMain",
 
       if (!verifyUnique) {
         req.flash("error", `${name} already exists in the database.`)
-        res.render("newMain", {
-          flash: req.flash(),
-        })
       } else {
         await res.locals.store.addItem(name);
         req.flash("success", `${name} has been succesfully added!`);
-        res.redirect("/home");
       }
+
+      res.render("newMain", {
+        flash: req.flash(),
+      })
     } catch(error) {
       next(error)
     }
@@ -168,12 +153,13 @@ app.get("/newCombo",
   async(req, res, next) => {
     try {
       let ingredientsList = await res.locals.store.displayAll();
+      let listStr = await res.locals.store.toString(ingredientsList);
       // re design how the information is presented for ingredients list.
       // make it so that the id and the ingredients are equally side by side but divided.
       // Do not make it linkable
 
       res.render("combo", {
-        ingredientsList
+        ingredientsList: listStr
       })
     } catch(error) {
       next(error)
@@ -184,8 +170,8 @@ app.get("/newCombo",
 app.post("/newCombo", 
   async(req, res, next) => {
     try {
-      let primaryList = await res.locals.store.displayAll("main");
-      let substitution = '';
+      let ingredientsList = await res.locals.store.displayAll();
+      let listStr = await res.locals.store.toString(ingredientsList);
       let firstAlt = req.body.firstAlt;
       let secondAlt = req.body.secondAlt;
       let altFor = req.body.altFor;
@@ -200,13 +186,13 @@ app.post("/newCombo",
         req.flash("success", `A new substitution was added to "${primaryItem}"`)
         res.render("combo", {
           flash: req.flash(),
-          ingredientsList: primaryList,
+          ingredientsList: listStr,
         })
       } else {
         req.flash("error", `${verifyIds} is an invalid entry.`);
         res.render("combo", {
           flash: req.flash(),
-          ingredientsList: primaryList,
+          ingredientsList: listStr,
           //leave the previous entry if incorrect in the text box
           // firstAlt,
           // secondAlt,

@@ -1,7 +1,12 @@
 extends layout 
 
 block main 
-  .flex
+  .navi.left
+    a.button.left(href="/home") BACK TO HOME 
+  .navi.right
+    a.button.right(href="/newCombo") ADD SUBSTITUTE
+
+  .flexDisplay
     .inputDisplay 
       form(action="/newMain" method="post")
         dl
@@ -15,4 +20,3 @@ block main
 
         fieldset.actions 
           input#submit(type="submit" value="SUBMIT")
-          a.button.cancel(href="/home") CANCEL

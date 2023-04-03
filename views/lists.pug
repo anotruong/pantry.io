@@ -1,11 +1,12 @@
 extends layout 
 
 block main
-  .navi 
-    a.button.home(href="/newMain") ADD INGREDIENT 
-    a.button.home(href="/newCombo") ADD SUBSTITUTE
+  .navi.left
+    a.button.left(href="/newMain") ADD INGREDIENT 
+  .navi.right
+    a.button.right(href="/newCombo") ADD SUBSTITUTE
 
-  .flex
+  .flexDisplay
     .inputDisplay.main-list
       ul#ingredientsList.homePage
         each ingredient in ingredientsList 
@@ -13,33 +14,6 @@ block main
             p#item= ingredient.name
 
     .inputDisplay.substitute-display
-      p= `${altInfo}`
-
-  //- .flex
-    .lists-flex.main-list
-      ul#ingredientsList 
-        each ingredient in ingredientsList 
-          button#item(onclick="grabString(#{ingredient.id})")=ingredient.name
- 
-    .lists-flex.substitute-display
-      p= `${altInfo}` 
-
-    script(type='text/javascript').
-      {
-        function grabString(id) {
-          //- console.log(document.getElementById('item').innerHTML);
-          //- console.log(`this id is ${id}`;
-          document.getElementById('item').innerHTML = "testing"
-        };
-      }
-
-
-
-//- block headerLinks 
-  .button
-    .navi
-      .action 
-        a.button.home(href="/newMain") ADD INGREDIENT
-        a.button.home(href="/newCombo") ADD SUBSTITUTE
-    
-
+      p= `${substitute} ${secondSub}`
+      p= `${ratio}`
+      p= `${note}`

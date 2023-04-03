@@ -17,19 +17,6 @@ body {
   color: #2A293E;
 }
 
-/* h1.bannerBorder{
-  background-color: #98c9a3;
-  background-color:var(--color-accent);
-  box-sizing:border-box;
-  color: #edeec9;
-  display:flex;
-  justify-content:center;
-  margin-bottom:20px;
-  margin-bottom:var(--module-25);
-  padding:90px 0;
-  
-} */
-
 a:link { text-decoration: none; }
 
 a:visited { text-decoration: none; }
@@ -41,7 +28,6 @@ a:active { text-decoration: none; }
 .bannerBorder {
   background-color: #98c9a3;
   padding: 80px;
-  /* margin-bottom: x; */
   display: flex;
   justify-content: center;
 }
@@ -49,8 +35,6 @@ a:active { text-decoration: none; }
 .bannerBorder-content{
   margin-top: -50px;
   margin-bottom: 30px;
-  /* min-height: fit-content; */
-  /* font-size: 60px; */
 }
 
 input#submit {
@@ -71,6 +55,26 @@ input#submit:hover {
   border: 1px solid rgba(0,0,0,1);
 }
 
+.navi a{
+  position: fixed;
+  top: 0;
+  transition: 0.3s;
+  padding: 0px;
+  width: 100px;
+  min-height: 100%;
+  text-decoration: none;
+  color: #3399cc;
+  border-radius: 0 5px 5px 0;
+}
+
+.navi.left a:hover {
+  left: 0;
+}
+
+.navi.right a:hover {
+  right: 0;
+}
+
 a.button {
   display:block;
   margin: 0 auto;
@@ -86,48 +90,29 @@ a.button {
   width:fit-content;
   height: 15px;
   font: 13px 'Lucida Grande';
+  transform: rotate(180deg);
 }
 
 a.button:hover {
   background-color: rgba(0,0,0,1);
   color: white;
   border: 1px solid rgba(0,0,0,1);
-  /* text-decoration: none; */
-}
-
-.navi{
-  display:inline-block;
-  border: 3px 3px solid #000;
-  margin: 5 auto;
-  margin-left: -100px;
-  margin-top: -150px;
-  position: fixed;
-  width: fit-content;
-  height: fit-content;
-
 }
 
 .cancel{
   background-color: #d8bdbd;
 }
 
-.home{
-  background-color: #3399cc;
+.left{
+  left: -90px;
+  float: left;
+  writing-mode: vertical-lr;
 }
 
-.navi-flex {
-  display: flex;
-  justify-content: center;
-}
-
-.navi{
-  /* font-size: medium; */
-  /* border: 1px solid; */
-  padding: 2px 10px 2px 10px;
-  width:fit-content;
-  /* border-radius: 25px; */
-
-  /* margin-top: -75px; */
+.right{
+  right: -90px;
+  float: right;
+  writing-mode: vertical-rl;
 }
 
 h1.logo{
@@ -146,12 +131,26 @@ fieldset.actions {
   border: #000;
 }
 
+.flash-flex {
+  display: flex;
+  justify-content: center;
+  /* align-items: stretch; */
+
+}
+
 .flash {
   background-color: #cbe5f2;
   color: #3399cc;
+  min-width: 700px;
   max-width: 1000px;
+  height: 30px;
+  left: 0;
+  right: 0;
+  /* position: absolute; */
   padding: 10px 20px;
-  margin: auto;
+  margin-top: -210px;
+  /* position: inherit; */
+  /* margin-bottom: -20px; */
 }
 
 .flash p {
@@ -172,7 +171,6 @@ fieldset.actions {
 img.logo{
   margin-right: 10px;
   padding: -10px;
-  /* border: 3px #000 solid; */
   font-size: 10px;
   height: fit-content;
 }
@@ -186,8 +184,8 @@ img.logo{
   width: 250px;
   margin-left: 10px;
   margin-right: 20px;
-  margin-top: -100px;
-  /* overflow:hidden; */
+  margin-top: -110px;
+  z-index: 1;
 }
 
 form {
@@ -227,13 +225,9 @@ input.form:-webkit-autofill {
   transition: 5000s ease-in-out 0s;
 }
 
-.flex{
+.flexDisplay{
   display: flex;
   justify-content: center;
-  /* background: #f8f4e5; 
-  padding: 50px 100px;
-  border: 2px solid rgba(0,0,0,1);
-  box-shadow: 15px 15px 1px ##f8f4e5, 15px 15px 1px 2px rgba(0,0,0,1) */
 }
 
 .lists-flex{
@@ -248,6 +242,8 @@ input.form:-webkit-autofill {
   margin-left: 10px;
   margin-right: 10px;
   margin-top: -100px;
+  /* position: fixed; */
+  /* z-index: 2; */
 }
 
 .main-list{
@@ -258,6 +254,10 @@ input.form:-webkit-autofill {
 
 .main-list::-webkit-scrollbar{
   display: none;
+}
+
+.substitute-display{
+  min-width: 225px;
 }
 
 h2.title{
@@ -295,20 +295,17 @@ p.result {
   justify-content: center;
 }
 
-.text{
+.tagLine{
   color:#000000;
   font-size: 14px;
   font-family:'Courier New', Courier, monospace;
-  margin-top: -190px;
-  /* margin-left: 285px; */
-  position:absolute;
+  margin-top: -235px;
+  text-shadow: 6px 6px 9px solid #000000;
+  margin-left: 180px;
+  position:a bsolute;
+  text-align: left;
   /* align-content: center; */
   /* border: 3px #000 solid; */
   height: fit-content;
-
-}
-
-.substitute-display{
-  min-width: 225px;
 }
 

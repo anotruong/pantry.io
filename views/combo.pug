@@ -1,7 +1,12 @@
 extends layout 
 
 block main 
-  .flex
+  .navi.left
+    a.button.left(href="/newMain") ADD INGREDIENT
+  .navi.right
+    a.button.right(href="/home") BACK TO HOME
+    
+  .flexDisplay
     .inputDisplay
       form(action="/newCombo" method="post")
         dl 
@@ -34,27 +39,12 @@ block main
                   placeholder="What should we know about this alt?")
 
           fieldset.actions 
-            input#submit(type="submit" value="ENTER")
-
-          .button 
-            .action 
-              a.button.cancel(href="/home") CANCEL 
-        
+            input#submit(type="submit" value="ENTER")        
 
     .inputDisplay.main-list
-      h2.title Ingredients List
+      //- h2.title Ingredients List
       ul#ingredientsList 
         each ingredient in ingredientsList 
-          p#item= `${Object.values(ingredient)}`
-
-  //- .lists
-    .lists-flex.main-list
-      ul#ingredientsList 
-        each ingredient in ingredientsList 
-          p= `${Object.values(ingredient)}`
- 
+          p= ingredient
 
 block headerLinks 
-  //- .button 
-    .action 
-      a.button.home(href="/home") Home
