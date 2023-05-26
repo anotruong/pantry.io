@@ -1,0 +1,17 @@
+button#login {
+  width: 131px; 
+  height: 31px;
+  background-color: #D15A27;
+  border-radius: 8px;
+  border: transparent;
+  font-size: 19px;
+  font-weight: 700;
+  text-decoration: underline;
+  color: white;
+}
+
+#loginBtn-container {
+  position:relative;
+  top: 32%;
+  z-index: 3;
+}

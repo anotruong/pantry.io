@@ -1,0 +1,40 @@
+#title-flex {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  top: 20%;
+  /* left: 28%; */
+  width: 100vw;
+}
+
+#title-container {
+  position:  absolute;
+  bottom: 0rem;
+  margin: 1rem;
+  z-index: 4;
+}
+
+h1#title {
+  margin: 0px 0px 0px 0px;
+  color: white;
+  filter: drop-shadow(0, 0, 4, 4);
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  filter: drop-shadow(2px 4px 4px black);
+}
+
+h1.mobileTitle {
+  position: relative;
+  bottom: 40%;
+  
+}
+
+h1.loginTitle {
+  position: relative;
+  top: 25%;
+}

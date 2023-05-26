@@ -1,0 +1,84 @@
+#loginPage {
+  width: 100vw;
+  background-color: #F5F5F5;
+  color: #D69B82;
+  font-size: 19;
+
+  height: 95vh;
+
+  position: absolute;
+  bottom: 0rem;
+  left: 0rem;
+  border-top-left-radius: 3rem;
+  border-top-right-radius: 3rem;
+}
+
+#loginPage-container {
+  position: absolute;
+  z-index: 3;
+  display: flex;
+  bottom: 0rem;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+
+/* #loginPage-flex {
+  position: absolute;
+  z-index: 3;
+  display: flex;
+  bottom: 0rem;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+} */
+
+form#loginForm {
+  position: relative;
+  top: 30%;
+}
+
+input[type=text] {
+  /* width: 70%;
+  height: 5%; */
+  /* z-index: inherit; */
+  font: 19px;
+  color: #D69B82;
+  font-weight: 300;
+
+  margin: 1rem;
+  width: 315px;
+  height: 35px;
+  font-size: 12px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  /* box-shadow: 1px 13px 18px rgb(0 0 0 / 7%); */
+  filter: drop-shadow(4px 4px 4px #747474);
+}
+
+#resetPS-container {
+  position: relative;
+  top: 30%;
+  right: 25%;
+}
+
+a#resetPS {
+  /* top: 29%;
+  right: 2%;
+  position: relative; */
+  text-decoration: underline;
+  color: darkgrey;
+  font-size: 14px;
+}
+
+p {
+  font-size: 14px;
+  position: relative;
+  top: 16%;
+  left: 0%;
+  align-self: center;
+}
