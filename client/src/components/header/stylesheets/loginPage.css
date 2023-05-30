@@ -47,7 +47,6 @@ input[type=text] {
   height: 5%; */
   /* z-index: inherit; */
   font: 19px;
-  color: #D69B82;
   font-weight: 300;
 
   margin: 1rem;
@@ -57,7 +56,17 @@ input[type=text] {
   font-family: 'Inter', sans-serif;
   font-weight: 400;
   /* box-shadow: 1px 13px 18px rgb(0 0 0 / 7%); */
-  filter: drop-shadow(4px 4px 4px #747474);
+  /* filter: drop-shadow(4px 4px 4px #747474); */
+  border: 0;
+  border-bottom: .3rem solid #CBCBCB;
+}
+
+input::placeholder {
+  color: #D69B82;
+  font-size: 19px;
+  font: 'Inter', sans-serif;
+  font-weight: 600;
+
 }
 
 #resetPS-container {

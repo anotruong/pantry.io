@@ -2,7 +2,7 @@ import './stylesheets/title.css'
 
 function Title (props) {
 
-  console.log(props)
+  // console.log(props)
   return(
     <div id="title-flex">
       <div id="title-container">

@@ -1,0 +1,92 @@
+[
+  {
+    "id": "001",
+    "ingredient": "powdered sugar",
+    "notes": "an not be empty",
+    "dairy-free": true,
+    "vegatarian": true,
+    "vegan": true,
+    "baking": true,
+    "cooking": true
+  },
+  {
+    "id": "002",
+    "ingredient": "maple syrup",
+    "notes": "liquid sweetner that derives from maple trees",
+    "dairy-free": true,
+    "vegatarian": true,
+    "vegan": true,
+    "baking": true,
+    "cooking": true
+  },
+  {
+    "id": "003",
+    "ingredient": "chicken eggs",
+    "notes": "by product of chicken",
+    "dairy-free": true,
+    "vegatarian": false,
+    "vegan": false,
+    "baking": true,
+    "cooking": true
+  },
+  {
+    "id": "004",
+    "ingredient": "half and half",
+    "notes": "a dairy product that is high in fat",
+    "dairy-free": false,
+    "vegatarian": false,
+    "vegan": false,
+    "baking": true,
+    "cooking": true
+  },
+  {
+    "id": "005",
+    "ingredient": "dark brown sugar",
+    "notes": "sugar that has molasses in it",
+    "dairy-free": true,
+    "vegatarian": true,
+    "vegan": true,
+    "baking": true,
+    "cooking": true
+  },
+  {
+    "id": "006",
+    "ingredient": "apple sauce",
+    "notes": "apple that has been pureed without the skin and core.",
+    "dairy-free": true,
+    "vegatarian": true,
+    "vegan": true,
+    "baking": true,
+    "cooking": true
+  },
+  {
+    "id": "007",
+    "ingredient": "banana",
+    "notes": "",
+    "dairy-free": true,
+    "vegatarian": true,
+    "vegan": true,
+    "baking": true,
+    "cooking": true
+  },
+  {
+    "id": "008",
+    "ingredient": "aqua fava",
+    "notes": "liquid derived from chickpeas",
+    "dairy-free": true,
+    "vegatarian": true,
+    "vegan": true,
+    "baking": true,
+    "cooking": false
+  },
+  {
+    "id": "009",
+    "ingredient": "whey protein powder",
+    "notes": "a protein powder derived from milk",
+    "dairy-free": false,
+    "vegatarian": false,
+    "vegan": false,
+    "baking": true,
+    "cooking": false
+  }
+]
