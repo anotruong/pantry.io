@@ -4,7 +4,7 @@ function Title (props) {
 
   // console.log(props)
   return(
-    <div id="title-flex">
+    <div id="title-flex" style={props.style}>
       <div id="title-container">
         <h1 id="title" class='props.class'>pantry.io</h1>
       </div>

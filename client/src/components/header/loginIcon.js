@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { AppContext } from '../../hooks/context';
 import './stylesheets/loginIcon.css'
 
-function LoginBtn () {
+function LoginIcon () {
 
   const { loginState, setLoginState } = useContext(AppContext);
 
@@ -18,4 +18,4 @@ function LoginBtn () {
   )
 }
 
-export default LoginBtn;
+export default LoginIcon;
