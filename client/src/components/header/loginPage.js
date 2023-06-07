@@ -10,9 +10,9 @@ function LoginPage () {
         <div id='loginPage'>
           {/* <Title class='loginTitle' /> */}
           <form id='loginForm'>
-            <input type='text' placeholder='email@email.co'/>
+            <input type='text' className='login' placeholder='email@email.co'/>
             {/* <br/> */}
-            <input type='text' placeholder='password123'/>
+            <input type='text' className='login' placeholder='password123'/>
           </form>
           <div id='resetPS-container'>
             <a href='reddit.com' id='resetPS'>forgot password?</a>

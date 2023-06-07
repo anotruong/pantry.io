@@ -43,9 +43,6 @@ form#loginForm {
 }
 
 input[type=text] {
-  /* width: 70%;
-  height: 5%; */
-  /* z-index: inherit; */
   font: 19px;
   font-weight: 300;
 
@@ -58,15 +55,18 @@ input[type=text] {
   /* box-shadow: 1px 13px 18px rgb(0 0 0 / 7%); */
   /* filter: drop-shadow(4px 4px 4px #747474); */
   border: 0;
+
+}
+
+input.login {
   border-bottom: .3rem solid #CBCBCB;
 }
 
-input::placeholder {
+input.login::placeholder {
   color: #D69B82;
   font-size: 19px;
   font: 'Inter', sans-serif;
   font-weight: 600;
-
 }
 
 #resetPS-container {

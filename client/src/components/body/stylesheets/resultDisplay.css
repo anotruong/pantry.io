@@ -1,0 +1,48 @@
+.testingResults {
+  height: 100%;
+  width: 100%;
+  border: 2px solid gray;
+  display: inline-flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+}
+
+.subResults-container {
+  border: 1px solid white;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+  align-items: flex-start;
+}
+
+.subResult {
+  padding: 0rem 3rem;
+}
+
+.catagory-container {
+  display: inline-flex;
+  justify-content: space-between;
+  /* width: 0rem; */
+  position: absolute;
+  right: 2rem;
+}
+
+.catagory {
+  margin: .2rem
+}
+
+p.ingredientName {
+  text-indent: 2rem;
+}
+
+/* p.ratio {
+  position: relative;
+  left: 1rem;
+}
+
+p.notes {
+  left: 1rem;
+} */
