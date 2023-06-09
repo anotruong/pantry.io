@@ -1,13 +1,9 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
+
 import './stylesheets/resultDisplay.css';
 
 const ResultDisplay = (props) => {
-  console.log(props)
-  //key value pairs are passed in props and plugged into the divs.
-
   const [ open, setOpen ] = useState(false);
-
-  const secondDivHandler = () => setOpen(!open)
 
   const openDiv = <div className='subResults-container'>
     <div className='subResult'>
@@ -23,13 +19,17 @@ const ResultDisplay = (props) => {
 
   return (
     <React.Fragment>  
-      <div id={props.name} className='testingResults' onClick={() => {
+      <div 
+        id={props.name} 
+        className={`testingResults-${!open ? 'downArrow' : 'upArrow'}`} 
+        onClick={() => {
         setOpen(!open)
-      }}>
+      }}
+      >
         <p className='ingredientName'>{props.name}</p>
         <div className='catagory-container'> 
-          <p className='catagory'>baking</p>
-          <p className='catagory'>cooking</p>
+          <p className={`catagory-${props.baking}`}>baking</p>
+          <p className={`catagory-${props.cooking}`}>cooking</p>
         </div>
       </div>
       {!open ? closeDiv : openDiv}

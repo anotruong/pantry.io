@@ -52,27 +52,52 @@ const SearchPage = () => {
   const testerArr = [
     {
       name: 'apple', 
+      baking: true,
+      cooking: true,
+      dairyFree: true,
+      vegatarian: true,
+      vegan: true,
       ratio: '1:1',
       notes: 'a mealy fruit with a wet crunchy interior'
     }, 
     {
+      name: 'egg',
+      baking: true,
+      cooking: false,
+      dairyFree: true,
+      vegatarian: false,
+      vegan: false,
+      ratio: '1:1',
+      notes: 'from chickens'
+    },
+    {
       name: 'powdered sugar',
+      baking: true,
+      cooking: true,
+      dairyFree: true,
+      vegatarian: true,
+      vegan: true,
       ratio: '2:1',
       notes: 'I hope this works'
     },
     {
-      name: 'tomatos',
+      name: 'milk',
+      baking: true,
+      cooking: false,
+      dairyFree: false,
+      vegatarian: false,
+      vegan: false,
       ratio: '4:1',
       notes: 'fire alarm'
-    },
+    }
   ]
 
   const displayResults = testerArr.map(obj => ResultDisplay(obj));
 
   const resultLength = testerArr.length;
 
-  // console.log(tester)
-
+  /*
+    Filtering before 'resultsLength' is returned. */
 
   return (
     <div id="searchPage-container">

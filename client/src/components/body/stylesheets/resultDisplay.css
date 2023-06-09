@@ -1,11 +1,30 @@
-.testingResults {
+.testingResults-downArrow {
   height: 100%;
   width: 100%;
-  border: 2px solid gray;
+  border: 1px solid gray;
   display: inline-flex;
   justify-content: space-between;
   flex-direction: row;
   align-items: center;
+  background-image: url('../../../images/downArrow-btn.png');
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-position-x: 23.5rem
+}
+
+.testingResults-upArrow {
+  height: 100%;
+  width: 100%;
+  border: 1px solid gray;
+  border-bottom: none transparent;
+  display: inline-flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  background-image: url('../../../images/upArrow-btn.png');
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-position-x: 23.5rem
 }
 
 .subResults-container {
@@ -27,15 +46,27 @@
   justify-content: space-between;
   /* width: 0rem; */
   position: absolute;
-  right: 2rem;
+  right: 2.2rem
 }
 
-.catagory {
-  margin: .2rem
+p.catagory-true {
+  margin: .2rem 1rem .2rem .2rem;
+  background: url(../../../images/checkmark-icon.png) no-repeat;
+  background-position-y: 3px;
+  background-position-x: 0px;
+  text-indent: 1.3rem;
+}
+
+p.catagory-false {
+  margin: .2rem 1rem .2rem .2rem;
+  background-position-y: 3px;
+  background-position-x: 0px;
+  text-indent: 1.3rem;
 }
 
 p.ingredientName {
-  text-indent: 2rem;
+  text-indent: 1rem;
+  margin: 1rem;
 }
 
 /* p.ratio {
