@@ -6,7 +6,7 @@ function Title (props) {
   return(
     <div id="title-flex" style={props.style}>
       <div id="title-container">
-        <h1 id="title" class='props.class'>pantry.io</h1>
+        <h1 id="title" className='props.class'>pantry.io</h1>
       </div>
   </div>
   )

@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import './stylesheets/resultDisplay.css';
 
 const ResultDisplay = (props) => {
+
+  // console.log(obj)
   const [ open, setOpen ] = useState(false);
 
   const openDiv = <div className='subResults-container'>
@@ -18,9 +20,10 @@ const ResultDisplay = (props) => {
   const closeDiv = <div></div>
 
   return (
-    <React.Fragment>  
+    <React.Fragment key={props.name}>  
       <div 
         id={props.name} 
+        // obj={props}
         className={`testingResults-${!open ? 'downArrow' : 'upArrow'}`} 
         onClick={() => {
         setOpen(!open)

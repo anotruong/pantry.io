@@ -7,7 +7,7 @@ function Searchbar (props) {
         <input 
           type="text"
           id="searchBar" 
-          onEnter="will each the info"
+          // onEnter="will each the info"
           placeholder={props.placeholder}/>
     </div>
   </div>

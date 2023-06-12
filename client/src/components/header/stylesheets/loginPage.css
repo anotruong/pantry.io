@@ -91,3 +91,15 @@ p {
   left: 0%;
   align-self: center;
 }
+
+button#homepage-btn {
+  border: none;
+  text-decoration: underline;
+  position: absolute;
+  left: 2rem;
+  top: 2rem;
+  text-indent: 1rem;
+  background: url(../../../images/backArrow-btn.png) no-repeat;
+  background-position-x: left;
+  background-position-y: center;
+}
