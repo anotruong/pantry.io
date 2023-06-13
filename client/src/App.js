@@ -32,8 +32,9 @@ function App() {
         <Searchbar style={{top: '22%'}}/>
 
       </div> */}
-         {!loginState &&<LoginIcon />}
-        {loginState && <LoginPage />}
+         {!loginState && <LoginIcon />}
+        {/* {loginState && <LoginPage />} */}
+        <LoginPage />
         {/* <Mobile/> */}
         <SearchPage />
       </AppContext.Provider>

@@ -10,9 +10,13 @@ function LoginPage () {
 
   return (
     <div id='loginPage-flex'>
-      <div id='loginPage-container'>
+      <div 
+        id='loginPage-container' 
+        style={{top: `${!loginState ? '110rem' : '56rem'}`}}
+      >
         <div id='loginPage'>
-          {/* <Title class='loginTitle' /> */}
+          <h1 id='login'>pantry.io</h1>
+          <h2 >login</h2>
           <>
             <button 
               id='homepage-btn'

@@ -17,12 +17,13 @@
   position: absolute;
   z-index: 3;
   display: flex;
-  bottom: 0rem;
+  /* bottom: 0rem; */
   flex-direction: column;
   flex-wrap: nowrap;
   align-content: center;
   justify-content: center;
   align-items: center;
+  transition: 1.5s;
 }
 
 /* #loginPage-flex {
@@ -102,4 +103,21 @@ button#homepage-btn {
   background: url(../../../images/backArrow-btn.png) no-repeat;
   background-position-x: left;
   background-position-y: center;
+}
+
+h1#login {
+  margin: 0px 0px 0px 0px;
+  color: white;
+  filter: drop-shadow(0, 0, 4, 4);
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  filter: drop-shadow(2px 4px 4px black);
+  position: relative;
+  top: 25%
+}
+
+h2 {
+  color: black;
+  position: relative;
+  top: 30%;
 }
