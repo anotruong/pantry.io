@@ -1,10 +1,8 @@
-// import logo from './logo.svg';
 import {useState} from 'react';
-// import Mobile from './mobile/mobile.js';
-import LoginPage from './components/header/loginPage';
-import SearchPage from './mobile/pages/searchPage';
+import LoginPage from './pages/loginPage';
+import SearchPage from './pages/searchPage';
 import { AppContext } from './hooks/context';
-import LoginIcon from './components/header/loginIcon';
+import LoginIcon from './components/navigation/loginIcon';
 
 import './App.css';
 
@@ -23,19 +21,10 @@ function App() {
         isVegetarian, setVegetarian,
         isVegan, setVegan
       }}>
-      {/* <Title class='mobileTitle' style={{top: 20%}}/>
 
-      <div id="mobile">
-        <LoginIcon />
-        <p id='subtitle'>substitutions that lives in your pantry</p>
-
-        <Searchbar style={{top: '22%'}}/>
-
-      </div> */}
          {!loginState && <LoginIcon />}
         {/* {loginState && <LoginPage />} */}
         <LoginPage />
-        {/* <Mobile/> */}
         <SearchPage />
       </AppContext.Provider>
     </div>
