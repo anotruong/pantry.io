@@ -2,8 +2,9 @@ import { useContext } from "react";
 import Checkboxes from "../components/checkboxes/catagories";
 import { AppContext } from "../hooks/context";
 import BakeOrCook from "../components/checkboxes/bakeOrCook";
-import './stylesheets/ingredientsPage.css';
 
+import './stylesheets/ingredientsPage.css';
+import './stylesheets/formPage.css';
 
 const IngredientsPage = () => {
   // const { isDairyFree, isVegetarian, isVegan } = useContext(AppContext);

@@ -6,6 +6,7 @@ import LoginIcon from './components/navigation/loginIcon';
 
 import './App.css';
 import IngredientsPage from './pages/ingredientsPage';
+import AddAlternative from './pages/addAlternative';
 
 
 function App() {
@@ -27,7 +28,8 @@ function App() {
         {/* {loginState && <LoginPage />} */}
         {/* <LoginPage /> */}
         {/* <SearchPage /> */}
-        <IngredientsPage />
+        {/* <IngredientsPage /> */}
+        <AddAlternative />
       </AppContext.Provider>
     </div>
   );
