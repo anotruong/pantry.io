@@ -1,0 +1,33 @@
+#search-flex {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  position: absolute;
+  top: 13%;
+  margin: 1rem 0rem 1rem 0rem;
+}
+
+#search-bar-container {
+  width: 100vw;
+  
+}
+
+
+input#searchBar {
+  /* width: 100%;
+  height: 100%;
+   */
+  width: 80vw;
+  height: 35px;
+  font-size: 12px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  margin: 0rem;
+  text-indent: 1rem;
+}
+
+input#searchBar::placeholder {
+ font-size: 12px;
+
+}
