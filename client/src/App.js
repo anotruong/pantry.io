@@ -5,6 +5,7 @@ import { AppContext } from './hooks/context';
 import LoginIcon from './components/navigation/loginIcon';
 
 import './App.css';
+import IngredientsPage from './pages/ingredientsPage';
 
 
 function App() {
@@ -24,8 +25,9 @@ function App() {
 
          {!loginState && <LoginIcon />}
         {/* {loginState && <LoginPage />} */}
-        <LoginPage />
-        <SearchPage />
+        {/* <LoginPage /> */}
+        {/* <SearchPage /> */}
+        <IngredientsPage />
       </AppContext.Provider>
     </div>
   );
