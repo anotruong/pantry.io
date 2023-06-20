@@ -39,7 +39,7 @@ const IngredientsPage = () => {
           <BakeOrCook />
         </div>
         <div id="btn-container">
-          <button id="submitIngredients">add ingredients</button>
+          <button className="submit-btn">add ingredients</button>
         </div>
       </div>
     </div> 

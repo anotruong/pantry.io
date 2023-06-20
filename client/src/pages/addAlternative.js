@@ -1,25 +1,22 @@
+import IngredientList from '../components/ingredientList';
 import './stylesheets/addAlternative.css';
 import './stylesheets/formPage.css';
 
 const AddAlternative = () => {
-  const testerArr = ['apple', 'pear', 'cheese', 'chowder', 'ginseng', 'flour'];
 
-  const displayOptions = testerArr.map((subArr) => <p>{subArr}</p>)
 
   return (
     <div className="page-container">
       <div className="page-flex">
+        <div className="title-container" >
+          <h3 id="title">pantry.io</h3>
+          <p id="subtitle">substitues from your pantry</p>
+        </div>
         <div className="form-container">
           <form id="ingredients">
-            <label className="label">choose an ingredient</label>
-            {/* <input className="ingredients" /> */}
-            <div className="dropdown">
-              <div className="dropdown-btn">choose an ingredient</div>
-              <div className="dropdown-content">
-                {displayOptions}
-              </div>
-            </div>
-            <label className="label">enter the substitution</label>
+            <label className="label">choose an ingredient:</label>
+            <IngredientList />
+            <label className="label">enter the substitution:</label>
             <input className="ingredients" />
             <label className="label">what's the ratio?</label>
             <input className="ingredients" />
@@ -28,10 +25,12 @@ const AddAlternative = () => {
               className="ingredients" 
               type="textbox"
             />
-
-            {/* <div id="btn-container"> */}
-              <button id="submitIngredients">add ingredients</button>
-            {/* </div> */}
+            <button 
+              className="submit-btn" 
+              id="addAlternative"
+            >
+              add alternative
+            </button>
           </form>
         </div>
       </div>
