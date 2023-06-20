@@ -1,13 +1,14 @@
-import {useState} from 'react';
+import { useState } from 'react';
+import { AppContext } from './hooks/context';
+
+import AccountPage from './pages/accountPage';
+import AddAlternative from './pages/addAlternative';
+import IngredientsPage from './pages/ingredientsPage';
 import LoginPage from './pages/loginPage';
 import SearchPage from './pages/searchPage';
-import { AppContext } from './hooks/context';
 import LoginIcon from './components/navigation/loginIcon';
 
 import './App.css';
-import IngredientsPage from './pages/ingredientsPage';
-import AddAlternative from './pages/addAlternative';
-
 
 function App() {
   const [ loginState, setLoginState ] = useState(false);
@@ -29,7 +30,8 @@ function App() {
         {/* <LoginPage /> */}
         {/* <SearchPage /> */}
         {/* <IngredientsPage /> */}
-        <AddAlternative />
+        {/* <AddAlternative /> */}
+        <AccountPage />
       </AppContext.Provider>
     </div>
   );
