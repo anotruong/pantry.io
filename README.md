@@ -18,5 +18,9 @@ The purpose of this app is to create a library of alternatives to ingredients th
   - PostgreSQL
   - Express.js
   - Node.js
-  - PUG, formally JADE.
+  - React.js
   
+## Visuals
+<div style="display: flex; flex-direction: row; align-content: space-between; width:fit-content; ">
+  <img src="client/src/shared/images/mobile-view.png" width="716" height="506" />
+</div>

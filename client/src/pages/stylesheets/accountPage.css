@@ -2,6 +2,68 @@
   background: lightblue;
 }
 
-.accountPage {
+.accountPage{
   background-color: darkcyan;
+  height: 95vh;
+  border-radius: 2rem 2rem 0rem 0rem;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: 3rem;
+}
+
+#accountPage-flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  top: 10rem;
+}
+
+#pfp-icon {
+  height: 13vh;
+  width: 28vw;
+  border: 1px solid black;
+  background-image: url(../../images/login-btn-large.png);
+  background-size: 100%;
+}
+
+#accountInfo-flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* position: relative; */
+  /* top: 10rem; */
+}
+
+#accountFeatures-flex {
+  /* display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: nowrap; */
+  /* width: 90vw; */
+}
+
+button.accBtnFeature {
+  height: 2rem;
+  width: 7rem;
+  margin: 1rem 2rem;
+  color: black;
+  font-size: 25px;
+}
+
+#accBtn-container {
+  border-top: solid black 1px;
+  border-bottom: solid black 1px;
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+#displayResult-container {
+  height: 23rem;
+  border: 1px blue solid;
+  overflow: scroll;
 }
